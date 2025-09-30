@@ -1,0 +1,23 @@
+body {
+  overflow: hidden; /* отключает скролл полностью */
+}
+
+.text-color{
+    color: #1c2541;
+}
+
+.button {
+    display: inline-block;
+    padding: 7px 24px;
+    background: #1c2541;
+    color: white;
+    border-radius: 8px;
+    transition: 0.1s;
+}
+.button:hover {
+    background: white;
+    color: black;
+    transform: scale(1.009);
+}
+
+
