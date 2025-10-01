@@ -22,3 +22,7 @@ def login_view(request):
     else:
         form = CustomAuthenticationForm()
     return render(request, 'user/login.html', {'form': form})
+
+def logout_view(request):
+    logout(request)
+    return redirect('user:login')
