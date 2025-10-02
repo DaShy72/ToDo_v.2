@@ -32,7 +32,14 @@ def calendar_view(request, year=None, month=None):
     ]
     month_name = eng_months[month]
 
+    day_today = today.day
+    month_today = eng_months[today.month]
+    year_today = today.year
+
     context = {
+        'day_today': day_today,
+        'month_today': month_today,
+        'year_today': year_today,
         'year': year,
         'month': month,
         'month_name': month_name,
