@@ -1,0 +1,12 @@
+
+
+
+
+
+.day-text { font-size: 20px; }
+@media (min-width: 768px) {
+  .day-text { font-size: 28px; }
+}
+@media (min-width: 992px) {
+  .day-text { font-size: 35px; }
+}
