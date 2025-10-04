@@ -1,0 +1,50 @@
+{% extends 'main_app/calendar.html' %}
+{% block content %}
+
+<div class="col-6">
+    <div class="saved-task-container">
+        <h2>Your tasks</h2>
+        {% if events %}
+            {% for event in events %}
+                <div class="container-event">
+                    <p>{{ event.title }}</p>
+                    <p>{{ event.description }}</p>
+                    <p>{{ event.is_done }}</p>
+                    <p>{{ event.event_date }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h4>Empty</h4>
+        {% endif %}
+    </div>
+</div>
+
+<div class="col-6">
+    <div class="form-container">
+        <h2>Add event</h2>
+        {% if error %}
+            <div class="error-message">{{ error }}</div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">Name event</label>
+                <input type="text" name="title" id="title" class="input-field" placeholder="Input name event">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" name="description" id="description" class="textarea-field" placeholder="Input description">
+            </div>
+            <div class="form-buttons">
+                <button type="submit" class="btn-save">Save</button>
+                <a href="{% url 'main_app:calendar' %}" class="btn-back">Back to calendar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+</div>
+
+
+{% endblock content %}

@@ -1,6 +1,174 @@
 
+body{
+    background-color: black;
+}
+
+.main-container{
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    background-color: white;
+    width: 1000px;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/*Calendar container*/
+.calendar-container{
+    width: 700px;
+    height: 590px;
+}
+
+/* Head container */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.col-6 {
+    flex: 0 0 auto;
+    width: 50%;
+    padding-left: 30px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-3{
+    flex: 0 0 auto;
+    width: 25%;
+    padding-right: 15px;
+    padding-left: 15px;
+    box-sizing: border-box;
+    justify-content: end;
+    align-items: end;
+}
+
+/* Calendar */
+.head-calendar{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    box-sizing: border-box;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.date-box{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow {
+  display: inline-block;
+  padding: 0px 10px;
+  background-color: #0d6efd;
+  color: #fff;
+  border-radius: 0.25rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.arrow:hover {
+  background-color: #0b5ed7;
+  text-decoration: none;
+}
+
+.today-red{
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 5px solid red;
+    border-radius: 12px;
+}
+
+.text-decoration{
+    text-decoration: none;
+    color: black;
+}
+
+.date{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.calendar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.table-calendar{
+    width; 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: collapse;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.table-calendar th{
+    padding: 20px;
+    font-size: 1.5rem;
+
+}
+.table-calendar td{
+    padding: 10px;
+    margin: 10px;
+    font-size: 2.5rem;
+}
 
 
+
+/* Right task container */
+.task-container{
+    width: 280px;
+    height: 590px;
+    border-left: 1px solid black;
+    padding-left: 15px;
+    padding-right: 20px;
+    margin-left: 10px;
+    overflow-wrap: break-word;
+    overflow-y: auto;
+}
+
+
+
+.task-box{
+    display: flex;
+    width: 100%;
+    padding-right: 5px;
+    padding-left: 5px;
+    box-sizing: border-box;
+
+}
+
+.task{
+    font-size: 1rem
+
+}
+
+.date-task{
+    font-size: 1rem;
+    color: red;
+}
 
 
 .day-text { font-size: 20px; }
@@ -9,4 +177,130 @@
 }
 @media (min-width: 992px) {
   .day-text { font-size: 35px; }
+}
+
+
+
+/* Form container for tasks */
+.form-container {
+    width: 400px;
+    height: auto;
+    margin-right: 20px;
+    padding: 30px;
+    padding-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.input-field, .textarea-field {
+    width: 90%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-field:focus, .textarea-field:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+.textarea-field {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.input-field::placeholder, .textarea-field::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-save {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-save:hover {
+    background-color: #218838;
+}
+
+.btn-back {
+    background-color: #6c757d;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: #5a6268;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+}
+
+
+/* Saved-task-container */
+.saved-task-container{
+    width: 400px;
+    height: 550px;
+    margin-right: 20px;
+    padding: 30px;
+    padding-right: 50px;
+    border: 1px solid #ccc;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    background-color: #f9f9f9;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+}
+
+.saved-task-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.container-event{
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 12px;
 }

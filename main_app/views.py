@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from datetime import date
+from datetime import date,timedelta
 import calendar
+from django.utils.dateparse import parse_date
+from .models import Task
+
 
 @login_required
 def calendar_view(request, year=None, month=None):
@@ -36,6 +39,9 @@ def calendar_view(request, year=None, month=None):
     month_today = eng_months[today.month]
     year_today = today.year
 
+    next_week = today + timedelta(days=7)
+    events = Task.objects.filter(user=request.user, event_date__range=[today, next_week])
+
     context = {
         'day_today': day_today,
         'month_today': month_today,
@@ -48,7 +54,41 @@ def calendar_view(request, year=None, month=None):
         'prev_month': prev_month,
         'next_year': next_year,
         'next_month': next_month,
+        'events': events,
     }
 
-
     return render(request, 'main_app/calendar.html', context)
+
+
+def add_event(request):
+    initial_date = request.GET.get('date')
+    if initial_date:
+        initial_date = parse_date(initial_date)
+
+    events = Task.objects.filter(user=request.user, event_date=initial_date)
+
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        Task.objects.create(user=request.user, title=title, description=description, event_date=initial_date,
+                            is_done=False)
+    return render(request, 'main_app/add_event.html', {'events': events})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
